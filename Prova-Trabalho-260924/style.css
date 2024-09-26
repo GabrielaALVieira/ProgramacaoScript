@@ -1,0 +1,104 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #031647; /* Céu azul claro */
+    font-family: Arial, sans-serif;
+}
+
+#app {
+    width: 100%;
+    max-width: 1400px; /* Largura máxima do container do jogo */
+    padding: 0 20px; /* Adiciona padding lateral */
+    text-align: center;
+    position: relative;
+}
+
+.game-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end; /* Alinha herói e vilão na parte inferior */
+    width: 100%; /* O container ocupa 100% da largura do app */
+    height: 80vh; /* Altura do container */
+    padding: 20px;
+    background-color: #2f4063; /* Chão cinza escuro */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.character {
+    width: 105%; /* Expande herói e vilão para ocupar mais espaço */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f4f4f9;
+    border-radius: 8px;
+    padding: 80px; /* Aumenta o padding para expandir visualmente */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    margin: 0 100px; /* Adiciona margens laterais para separação */
+}
+
+.sprite img {
+    width: 250px; /* Largura da imagem do personagem */
+    height: auto;
+    margin-bottom: 20px; /* Espaçamento abaixo da imagem */
+}
+
+.life-bar {
+    width: 100%;
+    height: 20px;
+    background-color: #ffcccb; /* Fundo da barra de vida */
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.life {
+    background-color: #4CAF50; /* Verde de vida */
+    height: 100%;
+    transition: width 0.3s;
+}
+
+.actions {
+    margin-top: 15px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Distribui os botões em 2 colunas */
+    gap: 10px;
+    width: 100%;
+}
+
+button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #1d509f;
+    color: whitesmoke;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    width: 100%; /* Botões ocupam toda a largura do container */
+}
+
+button:hover {
+    background-color: #1a355e;
+}
+
+button:active {
+    transform: translateY(2px);
+}
+
+.result {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 24px;
+    text-align: center;
+    z-index: 1000;
+}

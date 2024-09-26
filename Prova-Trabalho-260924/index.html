@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Prova - Jogo Heroi vs Vilão</title>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+  <div class="game-container">
+    <div class="character hero">
+      <div class="life-bar">
+        <div class="life" :style="{ width: hero.life + '%' }">{{ hero.life }}</div>
+      </div>
+      <div class="sprite">
+        <img src="hero.png" alt="Heroi" class="hero-img">
+      </div>
+      <h1>{{ hero.name }}</h1>
+      <div class="actions">
+        <button @click="attack(true)" :disabled="winner">Atacar</button>
+        <button @click="defense(true)" :disabled="winner">Defender</button>
+        <button @click="usePotion(true)" :disabled="winner">Usar poção</button>
+        <button @click="flee(true)" :disabled="winner">Correr</button>
+      </div>
+    </div>
+
+    <div class="character villain">
+      <div class="life-bar">
+        <div class="life" :style="{ width: villain.life + '%' }">{{ villain.life }}</div>
+      </div>
+      <div class="sprite">
+        <img src="villain.png" alt="Vilão" class="villain-img">
+      </div>
+      <h1>{{ villain.name }}</h1>
+    </div>
+  </div>
+
+  <div v-if="winner" class="result">
+    <h2>{{ winner }} venceu a batalha!</h2>
+  </div>
+</div>
+
+<audio ref="attackSound" src="attack.mp3"></audio>
+<audio ref="victorySound" src="victory.mp3"></audio>
+<audio ref="defenseSound" src="defense.mp3"></audio>
+<script src="index.js"></script>
+</body>
+</html>
